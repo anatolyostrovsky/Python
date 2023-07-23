@@ -30,5 +30,21 @@ def isBoardFull(board):
 def winner(b, l):
     return (b[1] == l and b[2] == l and b[3] == l) or (b[4] == l and b[5] == l and b[6] == l) or (b[7] == l and b[8] == l and b[9] == l) or (b[1] == l and b[4] == l and b[7] == l) or (b[2] == l and b[5] == l and b[8] == l) or (b[3] == l and b[6] == l and b[9] == l) or (b[1] == l and b[5] == l and b[9] == l) or (b[3] == l and b[5] == l and b[7] == l)
     
+def playerMove():
+    run = True
+    while run:
+        move = input("Please choose a position to enter the X between 1 and 9")
+        try:
+            move = int(move)
+            if move > 0 and move < 10:
+                if isSpaceFree(move):
+                    run = False
+                    insertLetter("X", move)
+                else:
+                    print("This space is taken")
+            else:
+                print("Please type a number between 1 and 9")
 
+        except:
+            print("Please typa a number")
                                      
