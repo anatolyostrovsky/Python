@@ -1,4 +1,3 @@
-
 board = [" " for x in range(10)]
 
 
@@ -49,6 +48,8 @@ def playerMove():
             print("Please typa a number")
 
 
+
+
 def compMove():
     possibleMoves = [x for x, letter in enumerate(board) if letter == " " and x != 0]      
     move = 0
@@ -82,11 +83,11 @@ def compMove():
         move = selectRandom()
         return move
     
-    def selectRandom(list):
+def selectRandom(list):
         import random
         ln = len(list)
         r = random.randrange(0, ln)
-        return list[r]
+        return list[r]    
         
 def main():
     print("Welcom to the game of Tic Tac Toe!")
@@ -117,3 +118,11 @@ def main():
     if isBoardFull(board):
         print("Tie Game!")
 
+
+while True:
+    x = input("Do you want to play again?")
+    if x.lower() == "y":
+        board = [" " for x in range(10)]
+        print("---------------------------")
+        main()
+    break
