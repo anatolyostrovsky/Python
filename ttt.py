@@ -47,4 +47,73 @@ def playerMove():
 
         except:
             print("Please typa a number")
-                                     
+
+
+def compMove():
+    possibleMoves = [x for x, letter in enumerate(board) if letter == " " and x != 0]      
+    move = 0
+
+    for let in ["O", "X"]:
+        for i in possibleMoves:
+            boardcopy = board[:]
+            boardcopy[i] = let     
+            if winner(boardcopy, let):
+                move = i
+                return move        
+
+    cornersOpen = []
+    for i in possibleMoves:
+        for i in [1, 3, 7, 9,]:
+            cornersOpen.append(i)
+
+    if len(cornersOpen) > 0:
+        move = selectRandom()
+        return move
+    
+    if 5 in possibleMoves:
+        move = 5
+        return move
+    
+    edgesOpen = []
+    for i in possibleMoves:
+        if i in [2, 4, 6, 8]:
+            edgesOpen.append(i)
+    if len(edgesOpen) > 0:
+        move = selectRandom()
+        return move
+    
+    def selectRandom(list):
+        import random
+        ln = len(list)
+        r = random.randrange(0, ln)
+        return list[r]
+        
+def main():
+    print("Welcom to the game of Tic Tac Toe!")
+    printBoard(board)
+
+    while not(isBoardFull(board)):
+        if not(winner(board, "O")):
+            playerMove()
+            printBoard(board)
+        else:
+            print("Loser :(")
+            break
+
+        if not(winner(board, "X")):
+            move = compMove()
+            if move == 0:
+                print ("Tie Game!")
+            else:
+                insertLetter("O", move)
+                print("Computer has made the move!", move, ":" )
+                printBoard(board)
+
+        else:
+            print("Winner Winner Chicken Dinner!")
+            break
+
+
+    if isBoardFull(board):
+        print("Tie Game!")
+
