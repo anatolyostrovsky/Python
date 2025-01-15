@@ -8,9 +8,9 @@ FOLDERS = [
             "/home/anatoly/Desktop/cleanup/oldlogs"
 ]
 
-TOTAL_DELETED_SIZE  = 0
+TOTAL_DELETED_SIZE = 0
 TOTAL_DELETED_FILES = 0
-TOTAL_DELETED_DIRS  = 0
+TOTAL_DELETED_DIRS = 0
 
 #--------------------------MAIN-----------------------------------
 
@@ -50,10 +50,10 @@ for folder in FOLDERS:
 
 
 print("-------------------------------------------------------")
-print("Start time: "            + str(starttime))
-print("Total deleted size: "    + str(TOTAL_DELETED_SIZE/1024/1024) + "MB")
-print("Total deleted files: "   + str(TOTAL_DELETED_FILES))
+print("Start time: " + str(starttime))
+print("Total deleted size: " + str(TOTAL_DELETED_SIZE/1024/1024) + "MB")
+print("Total deleted files: " + str(TOTAL_DELETED_FILES))
 print("Total deleted folders: " + str(TOTAL_DELETED_DIRS))
-print("Finish time:"            + str(finishtime))
+print("Finish time:" + str(finishtime))
 print("-------------------------------------------------------")
 
